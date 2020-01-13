@@ -96,7 +96,6 @@ public class MessageController {
         if (!ids.isEmpty()) {
             messageService.readMessage(ids);
         }
-
         return "/site/letter-detail";
     }
 
