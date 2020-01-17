@@ -8,6 +8,7 @@ import java.util.Map;
  * @create 2020-01-17 12:57
  */
 public class Event {
+
     private String topic;
     private int userId;
     private int entityType;
@@ -68,4 +69,5 @@ public class Event {
         this.data.put(key, value);
         return this;
     }
+
 }

@@ -23,6 +23,7 @@ import java.util.Map;
  */
 @Component
 public class EventConsumer implements CommunityConstant {
+
     private static final Logger logger = LoggerFactory.getLogger(EventConsumer.class);
 
     @Autowired
@@ -34,11 +35,13 @@ public class EventConsumer implements CommunityConstant {
             logger.error("消息的内容为空!");
             return;
         }
+
         Event event = JSONObject.parseObject(record.value().toString(), Event.class);
         if (event == null) {
             logger.error("消息格式错误!");
             return;
         }
+
         // 发送站内通知
         Message message = new Message();
         message.setFromId(SYSTEM_USER_ID);
@@ -56,6 +59,7 @@ public class EventConsumer implements CommunityConstant {
                 content.put(entry.getKey(), entry.getValue());
             }
         }
+
         message.setContent(JSONObject.toJSONString(content));
         messageService.addMessage(message);
     }
