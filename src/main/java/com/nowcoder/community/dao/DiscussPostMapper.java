@@ -20,7 +20,7 @@ public interface DiscussPostMapper {
      * @param limit 每一页最多有多少行的数据
      * @return
      */
-    List<DiscussPost> selectDiscussPosts(int userId, int offset, int limit);
+    List<DiscussPost> selectDiscussPosts(int userId, int offset, int limit,int orderMode);
 
     /**
      * 查询帖子的行数
@@ -48,5 +48,7 @@ public interface DiscussPostMapper {
     int updateType(int id,int type);
 
     int updateStatus(int id,int status);
+
+    int updateScore(int id,double score);
 }
 
